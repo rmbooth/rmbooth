@@ -28,19 +28,25 @@ bool checkOrder(int * arr, int size)
 #ifdef TEST_SORT
 void ssort(int * arr, int size)
 {
-  // This function has two levels of for
-  // The first level specifies which element in the array
-  // The second level finds the smallest element among the unsorted
-  // elements
-
-  // This is the syntax to read or write an array element:
-  // int x = arr[4];
-  // read the value of arr[4] and store it in x
-  // arr[4] = 5;
-  // stores 5 in the element arr[4]
-  // Please remember that indexes start from 0.
-
-  // After finding the smallest element among the unsorted elements,
-  // swap it with the element of the index from the first level
+  int a;
+  int b;
+  int min;
+  int var;
+  for (a = 0;a < size - 1;a++)
+  {
+    min = a;
+    for (b = a + 1; b < size; b++)
+    {
+      if (arr[b] < arr[min])
+        min = b;
+    }
+    if (a != min)
+    {
+      var = arr[a];
+      arr[a] = arr[min];
+      arr[min] = var;
+    }
+  }
+return;
 }
 #endif
